@@ -37,7 +37,7 @@ const Filters = ({ filters, setFilters, data }) => {
   };
 
   return (
-    <div className="my-4 flex gap-6 flex-row bg-lightblue p-4">
+    <div className="my-4  flex gap-6 flex-col bg-lightblue p-4">
       {Object.keys(filterConfig).map((filterKey) => (
         <div key={filterKey}>
           <label htmlFor={filterKey} className="mr-2">
@@ -60,7 +60,7 @@ const Filters = ({ filters, setFilters, data }) => {
       ))}
 
       <div className="items-center flex">
-        <label htmlFor="selectedPopRange" className="mr-2 ml-4">
+        <label htmlFor="selectedPopRange" className="mr-2">
           Select EV Population Range:
         </label>
         <input

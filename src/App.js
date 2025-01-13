@@ -75,22 +75,22 @@ const App = () => {
   }, [filters, data]);
 
   return (
-    <div className="mx-auto flex flex-col m-auto gap-24 p-4 w-full">
+    <div className="mx-auto flex flex-col m-auto gap-12 p-4 w-full">
       <div className='flex gap-6 flex-row'>
         <Filters filters={filters} setFilters={setFilters} data={data} />
       </div>
-      <div className="flex m-auto flex-row nowrap gap-24 w-[80%]">
-        <div className="w-[70%]">
+      <div className="flex m-auto lg:flex-row flex-col  nowrap gap-24 w-[100%]">
+        <div className="lg:w-[70%] w-full">
           <h2 className="text-xl font-medium mb-2">EV Population Growth</h2>
           <LineChart data={filteredData} />
         </div>
 
-        <div className="w-[60%]">
-          <h2 className="text-xl font-medium mb-2">EV Population by Country</h2>
+        <div className="lg:w-[70%] max-h-[100%] w-full">
+          <h2 className="text-xl  font-medium mb-2">EV Population by Country</h2>
           <PieChart data={filteredData} />
         </div>
 
-        <div className="w-[60%]">
+        <div className="lg:w-[70%] w-full">
           <h2 className="text-xl font-medium mb-2">Top EV Models</h2>
           <BarChart data={filteredData} />
         </div>
