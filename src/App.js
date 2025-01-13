@@ -41,7 +41,7 @@ const App = () => {
   });
 
   useEffect(() => {
-    fetch('/data.csv')
+    fetch('https://Akanksha360.github.io/Project/data.csv')
       .then((response) => response.text()) 
       .then((csvText) => {
         Papa.parse(csvText, {
