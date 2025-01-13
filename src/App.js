@@ -36,7 +36,7 @@ const App = () => {
     "Model Year": '2019',
     "County": 'Monroe',
     "Electric Vehicle Type": 'Plug-in Hybrid Electric Vehicle (PHEV)',
-    selectedPopRange: 1000000000000000,
+    selectedPopRange: 1000,
     "Model": "RAV4 PRIME"
   });
 
