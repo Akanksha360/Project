@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 const Filters = ({ filters, setFilters, data }) => {
   const [filterConfig, setFilterConfig] = useState({
-    County: [],
+    "County": [],
     "Model Year": [],
     "Electric Vehicle Type": [],
     "Model":[]
@@ -37,7 +37,7 @@ const Filters = ({ filters, setFilters, data }) => {
   };
 
   return (
-    <div className="my-4 flex gap-12 flex-row bg-lightblue p-4">
+    <div className="my-4 flex gap-6 flex-row bg-lightblue p-4">
       {Object.keys(filterConfig).map((filterKey) => (
         <div key={filterKey}>
           <label htmlFor={filterKey} className="mr-2">
@@ -46,7 +46,7 @@ const Filters = ({ filters, setFilters, data }) => {
           <select
             id={filterKey}
             name={filterKey}
-            className="border p-2 rounded"
+            className="border bg-white p-2 rounded"
             value={filters[filterKey]}
             onChange={handleChange}
           >

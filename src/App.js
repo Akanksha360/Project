@@ -33,17 +33,17 @@ const App = () => {
   const [data, setData] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
   const [filters, setFilters] = useState({
-    selectedYear: '2019',
-    selectedRegion: 'Monroe',
-    selectedModelType: 'Plug-in Hybrid Electric Vehicle (PHEV)',
+    "Model Year": '2019',
+    "County": 'Monroe',
+    "Electric Vehicle Type": 'Plug-in Hybrid Electric Vehicle (PHEV)',
     selectedPopRange: 1000000000000000,
-    selectedModel:"RAV4 PRIME"
+    "Model": "RAV4 PRIME"
   });
 
   useEffect(() => {
     console.log("first")
     fetch('https://Akanksha360.github.io/Project/data.csv')
-      .then((response) => response.text()) 
+      .then((response) => response.text())
       .then((csvText) => {
         Papa.parse(csvText, {
           header: true,
@@ -51,7 +51,7 @@ const App = () => {
           skipEmptyLines: true,
           complete: (result) => {
             console.log("Parsed Data:", result.data);
-            setData(result.data); 
+            setData(result.data);
           },
         });
       })
@@ -61,21 +61,24 @@ const App = () => {
     console.log("Filters changed:", filters);
     const filteredData = data.filter((item) => {
       return (
-        item["Electric Vehicle Type"] == filters.selectedModelType && (
-        item["Model Year"] == filters.selectedYear ||
-        item["County"] === filters.selectedRegion  ||
-        item["2020 Census Tract"] <= filters.selectedPopRange)||
-        item["Model"]==filters.selectedModel 
-      );
+        item["Electric Vehicle Type"] == filters["Electric Vehicle Type"] &&
+        (
+          item["Model Year"] == filters["Model Year"] ||
+          item["County"] === filters["County"] ||
+          item["Model"] == filters["Model"] ||
+          item["2020 Census Tract"] <= filters.selectedPopRange)
+      )
     });
 
-    console.log("filetre",filteredData)
-    setFilteredData([...filteredData]); 
-  }, [filters, data]); 
+    console.log("filetre", filteredData)
+    setFilteredData([...filteredData]);
+  }, [filters, data]);
 
   return (
     <div className="mx-auto flex flex-col m-auto gap-24 p-4 w-full">
-      <Filters filters={filters} setFilters={setFilters} data={data}/>
+      <div className='flex gap-6 flex-row'>
+        <Filters filters={filters} setFilters={setFilters} data={data} />
+      </div>
       <div className="flex m-auto flex-row nowrap gap-24 w-[80%]">
         <div className="w-[70%]">
           <h2 className="text-xl font-medium mb-2">EV Population Growth</h2>
