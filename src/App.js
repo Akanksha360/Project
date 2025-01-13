@@ -41,6 +41,7 @@ const App = () => {
   });
 
   useEffect(() => {
+    console.log("first")
     fetch('https://Akanksha360.github.io/Project/data.csv')
       .then((response) => response.text()) 
       .then((csvText) => {
